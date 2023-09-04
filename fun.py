@@ -4,6 +4,7 @@ def pdb_file(pdb_id):
     """Function used for retreving the pdbfiles
         :pdb_id, PDB id of the protein
     """
+    
     url = f"https://files.rcsb.org/download/{pdb_id}.pdb"
     with open (f"{pdb_id}.pdb", "w") as file:
         file.writelines(requests.get(url).text)
