@@ -1,7 +1,5 @@
 import requests
 
-
-
 def pdb_file(pdb_id):
     """Function used for retreving the pdbfiles
         :pdb_id, PDB id of the protein
