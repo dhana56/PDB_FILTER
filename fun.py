@@ -1,10 +1,10 @@
 import requests
 
 def pdb_file(pdb_id):
-    """Function used for retreving the pdbfiles
-        :pdb_id, PDB id of the protein
+    """Function used for retreving the pdbfiles.
+    :pdb_id, PDB id of the protein
     """
-    
+
     url = f"https://files.rcsb.org/download/{pdb_id}.pdb"
     with open (f"{pdb_id}.pdb", "w") as file:
         file.writelines(requests.get(url).text)
@@ -18,7 +18,7 @@ def file_creator(new_list, pdb_id):
 
 # bulding the filetering Function:
 def pdb_filter(pdb_id, chain_id):
-    """Function that filter the alternate residue & renumberring the residue number with chain_id
+    """Function that filter the alternate residue & renumberring the residue number with chain_id.
     :pdb_id, PDB code for Protein files.
     :chain_id, which chain_id to be filter_out
     """
