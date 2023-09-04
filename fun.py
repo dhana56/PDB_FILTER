@@ -12,6 +12,11 @@ def pdb_file(pdb_id):
         
 #Function for creating the new file 
 def file_creator(new_list, pdb_id):
+    """Function that create the new pdb file.
+    :newlist, list that contains changes lines of old pdbfile.
+    :pdb_id, pdb_id of protein PDB file.
+    """
+    
     with open(f'{pdb_id}_c.pdb', 'w') as cleaned_file:
         cleaned_file.writelines(new_list)
         cleaned_file.close()
