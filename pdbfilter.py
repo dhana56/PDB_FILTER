@@ -150,3 +150,20 @@ class PDB_FILT:
         entry = input("please enter the chain for the seq length")
         print(self.chainid_len[entry.upper()])
 
+    def cordinate(self):
+        """Function return cordinate of residue atoms of 
+        pdb files.
+        :chain, name of chain.
+        :atom, name of the atom 
+        """
+        cordinate= defaultdict(dict)
+        atom = input("Please enter the atom name (eg:CA,CB): ")
+        chain = input("Please enter the chain name: ")
+        for i,j in enumerate(open(f"{self.pdb_id}.pdb")):
+            if j.startswith('ATOM'):
+                entry = j.split()
+                sub_dic = {}
+                if entry[2]==atom and entry[4]==chain :
+                    sub_dic[entry[5:6][0]] =tuple(entry[6:9]) 
+                    cordinate[chain].update(sub_dic)
+        return cordinate

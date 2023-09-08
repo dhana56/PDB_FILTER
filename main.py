@@ -9,6 +9,7 @@ if __name__ == '__main__':
     pdb_gen.miss_res_csv() #Store Missing atoms in csv file
     pdb_gen.amino_seq()# Gives seq of PDB chain.
     pdb_gen.seq_len()# Gives length of the chain
+    print(pdb_gen.cordinate())
     
     
 
