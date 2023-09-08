@@ -19,5 +19,5 @@ in the terminal using the following command:
 
 3. Run the [main.py](https://github.com/dhana56/PDB_FILTER/blob/main/main.py) file using the following commnad:
    > python main.py
-4. Enter the pdb 
+4. Enter the pdb id
    > eg:1mky
