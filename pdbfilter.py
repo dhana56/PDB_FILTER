@@ -1,6 +1,7 @@
 import requests
 import re
 import pandas as pd
+from collections import defaultdict
 
 class PDB_FILT:
 
@@ -8,6 +9,7 @@ class PDB_FILT:
         self.pdb_id = pdb_id
         self.__pdb_file__()
         self.__chain_name__()
+        self.__seqence__()
 
     def __pdb_file__(self):
         """Function used for retreving the pdbfiles.
@@ -103,6 +105,20 @@ class PDB_FILT:
         #Creating the new cleaned pdb file.
         self.__file_creator__(new_lines,filter_chain.upper())
         print(f'{self.pdb_id}_{filter_chain.upper()}_c.pdb is created successfully')
+
+    def __seqence__(self):
+        """Function that return seq len, amino acid sequence
+        """
+
+        self.seq = defaultdict(list)
+        self.chainid_len= {}
+        for i,j in enumerate(open(f"{self.pdb_id}.pdb")):
+            if j.startswith('SEQRES'):
+                if j[7:10].strip()=="1":
+                    self.chainid_len[j[11:12]] = j[14:18].strip()
+                    chain_id= j[11:12]
+                self.seq[chain_id].extend(j[19:70].split())
+        return self.seq,self.chainid_len
     
     def chains(self):
         print(self.chain)
@@ -125,3 +141,12 @@ class PDB_FILT:
             print(mis_val_atom)
         else:
             print("There is no missing residue atoms")
+
+    def amino_seq(self):
+        entry = input("please enter the chain for complete seq ")
+        print(self.seq[entry.upper()])
+
+    def seq_len(self):
+        entry = input("please enter the chain for the seq length")
+        print(self.chainid_len[entry.upper()])
+
