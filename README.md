@@ -17,7 +17,7 @@ in the terminal using the following command:
 2. Next navigate through the folder path in which PDB_FILTER is downloaded by using "cd relative path of the PDB_FILTER "
    
 
-3. Run the main.py file using the following commnad:
+3. Run the [main.py](https://github.com/dhana56/PDB_FILTER/blob/main/main.py) file using the following commnad:
    > python main.py
 4. Enter the pdb 
    > eg:1mky
