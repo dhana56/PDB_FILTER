@@ -47,7 +47,7 @@ class PDB_FILT:
         return self.chain
     
     def __miss_fun__(self,which):
-        """function that gives inforamtion of residues and atoms
+        """function that gives information of residues and atoms
         :file_path, provide the pdb file path
         :which: residue or atoms to calculate in the missing positions in the 
         PDB file.
@@ -82,7 +82,7 @@ class PDB_FILT:
     
     # bulding the filetering Function:
     def pdb_filter(self):
-        """Function that filter the alternate residue & renumberring the residue number with chain_id.
+        """Function that filter the alternate residue & renumbering the residue number with chain_id.
         :pdb_id, PDB code for Protein files.
         :chain_id, which chain_id to be filter_out
         """
@@ -151,14 +151,15 @@ class PDB_FILT:
         print(self.chainid_len[entry.upper()])
 
     def cordinate(self):
-        """Function return cordinate of residue atoms of 
+        """Function return coordinate of residue atoms of 
         pdb files.
         :chain, name of chain.
         :atom, name of the atom 
         """
         cordinate= defaultdict(dict)
-        atom = input("Please enter the atom name (eg:CA,CB): ")
-        chain = input("Please enter the chain name: ")
+        print("Please enter the atom and chain name to get the cordinate deatails, (1 and 2)")
+        atom = input("1. Please enter the atom name (eg:CA,CB): ")
+        chain = input("2. Please enter the chain name: ")
         for i,j in enumerate(open(f"{self.pdb_id}.pdb")):
             if j.startswith('ATOM'):
                 entry = j.split()
